@@ -1,0 +1,10 @@
+{
+    "scripted-rest-api": [
+        
+        {
+            "file": "register_post.js",
+            "sysId": "c12c15c7dbd13600aa7df8fdae961984"
+        }
+
+    ]
+}
