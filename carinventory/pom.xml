@@ -41,7 +41,7 @@
 			  </configuration>
 			  <executions>
 	          <execution>
-	            <phase>deploy</phase>
+	            <phase>install</phase>
 	            <goals>
 	              <goal>exporttosnow</goal>
 	            </goals>
