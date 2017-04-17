@@ -60,6 +60,24 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <plugin>
+              <groupId>com.globant.snow.plugin</groupId>
+			  <artifactId>snow-deployment-maven-plugin</artifactId>
+			  <version>1.0-SNAPSHOT</version>
+			  <configuration>
+			    <hostname>https://dev29836.service-now.com</hostname>
+			    <username>Mandar.Kamtekar</username>
+			    <password>12345</password>
+			  </configuration>
+			  <executions>
+	          <execution>
+	            <phase>deploy</phase>
+	            <goals>
+	              <goal>exporttosnow</goal>
+	            </goals>
+	          </execution>
+	        </executions>
+            </plugin>
             
             <plugin>
                 <groupId>com.github.searls</groupId>
