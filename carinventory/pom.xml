@@ -6,9 +6,9 @@
   <packaging>jar</packaging>
   
   <properties>
-    <snow.hostname>dev29836.service-now.com</snow.hostname>
-    <snow.username>Shreyas.Gokodikar</snow.username>
-    <snow.password>(MTIzNDU=)</snow.password>
+    <snow.hostname>https://dev29836.service-now.com</snow.hostname>
+    <snow.username>Mandar.Kamtekar</snow.username>
+    <snow.password>12345</snow.password>
   </properties>
       <dependencies>
         <!-- Internal Dependencies -->
@@ -36,9 +36,9 @@
 			  <artifactId>snow-deployment-maven-plugin</artifactId>
 			  <version>1.0-SNAPSHOT</version>
 			  <configuration>
-			    <hostname>https://dev29836.service-now.com</hostname>
-			    <username>Mandar.Kamtekar</username>
-			    <password>12345</password>
+			    <hostname>${snow.hostname}</hostname>
+			    <username>${snow.username}</username>
+			    <password>${snow.password}</password>
 			  </configuration>
 			  <executions>
 	          <execution>
