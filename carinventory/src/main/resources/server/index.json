@@ -25,5 +25,16 @@
                 "u_serial"
             ]
         }
-        ]
+        ],
+    "UI-Script" : [
+    	{
+            "file": "bundle_car.js",
+            "sysId": "b58caad0db523200a1f378eebf9619c9"
+        }],
+        
+     "UI-Html" :     [{
+            "file": "index.html",
+            "sysId": "fedaee50db523200a1f378eebf9619c4"
+        }
+    ]
 }
