@@ -1,6 +1,6 @@
 {
 "mode" : "insert",
-"value" : {
+"values" : {
 	"u_manufacturer" : "Volkswagen",
 	"u_serial" : 12342398,
 	"u_model" : "Vento",
