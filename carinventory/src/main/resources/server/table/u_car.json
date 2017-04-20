@@ -1,0 +1,9 @@
+{
+"mode" : "insert",
+"value" : {
+	"u_manufacturer" : "Volkswagen",
+	"u_serial" : 12342398,
+	"u_model" : "Vento",
+	"u_segment" : "Sedan"
+	}
+}

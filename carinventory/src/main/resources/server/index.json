@@ -1,4 +1,10 @@
 {
+	"script-include": [
+	        {
+	            "file": "register_post.js",
+	            "sysId": "58e71728db123200a1f378eebf961930"
+	        }
+	    ],
     "scripted-rest-api": [
         
         {
@@ -6,5 +12,18 @@
             "sysId": "0afb8a27dbb53200a1f378eebf9619f4"
         }      
 
-    ]
+    ],
+    "table": [
+        {
+            "file": 
+            [
+                "u_car.json"
+            ],
+            "name": "u_car",
+            "unique":
+            [
+                "u_serial"
+            ]
+        }
+        ]
 }
