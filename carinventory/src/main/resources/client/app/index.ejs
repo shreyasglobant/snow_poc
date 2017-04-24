@@ -13,12 +13,16 @@
   </head>
   <body> <!-- ng-strict-di -->
     <header>
-      <h1>Car App</h1>
-      <!-- <nav>
-          <a ui-sref="example">Example</a>
-          <a ui-sref="list">List</a>
-      </nav> -->
-      <app-nav></app-nav>
+      <md-content>
+        <md-toolbar class="md-hue-2">
+          <div class="md-toolbar-tools">
+            <h2 flex md-truncate>My Car's Home</h2>
+            <md-button></md-button>
+            <logout path='{{path}}'>
+          </div>
+        </md-toolbar>
+        <br>
+      </md-content>
     </header>
     <div id="app-wrapper" ui-view></div>
   </body>
