@@ -4,6 +4,7 @@ import ngMaterial from 'angular-material';
 import example from './example/example.module';
 import list from './list/list.module';
 import login from './login/login.module';
+import appNav from './nav/nav.module';
 
 require('./main.scss');
 
@@ -12,5 +13,6 @@ angular.module('app', [
   ngMaterial,
   'example',
   'list',
-  'login'
+  'login',
+  'appNav'
 ]);
