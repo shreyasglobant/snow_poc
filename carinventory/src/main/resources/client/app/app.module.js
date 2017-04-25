@@ -5,6 +5,8 @@ import example from './example/example.module';
 import list from './list/list.module';
 import login from './login/login.module';
 import appNav from './nav/nav.module';
+import session from './session/session.module';
+import ENV from './env/env.module';
 
 require('./main.scss');
 
@@ -14,5 +16,19 @@ angular.module('app', [
   'example',
   'list',
   'login',
-  'appNav'
-]);
+  'appNav',
+  'session',
+  'ENV'
+])
+.run(($rootScope, $state, sessionService, $log) => {
+  $log.log('hree');
+    // Route changes event handler
+  let stateListerner = $rootScope.$on('$stateChangeStart', (e, currentState) => {
+    // Logged in
+    $log.log('hree1');
+    if (!sessionService.isValid()) {
+      $state.go('login');
+    }
+
+  });
+});

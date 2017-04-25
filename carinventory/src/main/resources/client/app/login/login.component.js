@@ -7,9 +7,11 @@ let loginComponent = {
     const vm = this;
     vm.title = loginService.title();
     vm.formData =  {
-      email: 'hello@patternry.com',password: 'foobar'
+      email: '',password: ''
     };
     vm.submit = ()=> {
+      loginService.login(vm.formData).then(res => {
+      });
       return true;
     } ;
   }
