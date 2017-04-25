@@ -1,18 +1,14 @@
 <div ng-cloak>
 
   <md-content class="md-padding" >
-    <h1>Car App</h1>
     <md-nav-bar
       md-selected-nav-item="nav.currentNavItem"
       nav-bar-aria-label="navigation links">
-      <md-nav-item md-nav-click="nav.goto('example')" name="example">
-        Example
+      <md-nav-item md-nav-click="nav.goto('home.grid')" name="grid">
+        Grid
       </md-nav-item>
-      <md-nav-item md-nav-click="nav.goto('list')" name="list">
+      <md-nav-item md-nav-click="nav.goto('home.list')" name="list">
         List
-      </md-nav-item>
-      <md-nav-item md-nav-click="nav.goto('login')" name="login">
-        Login
       </md-nav-item>
       <!-- these require actual routing with ui-router or ng-route, so they
       won't work in the demo

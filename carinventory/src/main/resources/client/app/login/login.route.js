@@ -6,7 +6,10 @@ function loginRoutes($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('login', {
       url: '/login',
-      component: 'login'
+      component: 'login',
+      resolve: ($rootScope)=> {
+        $rootScope.path = 'login';
+      }
     })
 }
 

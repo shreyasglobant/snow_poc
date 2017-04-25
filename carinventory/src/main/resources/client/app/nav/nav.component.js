@@ -9,7 +9,7 @@ let navComponent = {
     vm.goto = (state) => {
       $state.go(state);
     }
-    vm.currentNavItem = 'example';
+    vm.currentNavItem = $state.current.name.indexOf('grid') > -1 ? 'grid' : 'list';
   }
 
 }

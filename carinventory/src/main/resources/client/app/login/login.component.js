@@ -3,7 +3,7 @@ import loginHtml from './login.html';
 let loginComponent = {
   template: loginHtml,
   controllerAs: 'login',
-  controller: function(loginService, $state) {
+  controller: function(loginService, $state, $rootScope) {
     const vm = this;
     vm.title = loginService.title();
     vm.formData =  {
@@ -12,9 +12,10 @@ let loginComponent = {
     vm.errorMsg = '';
     vm.submit = ()=> {
       vm.errorMsg = '';
+      $rootScope.path = 'home';
       loginService.login(vm.formData).then(res => {
         if (res) {
-          $state.go('list');
+          $state.go('home.list');
         }
         else {
           vm.errorMsg = 'Invalid User';

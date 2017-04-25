@@ -4,7 +4,9 @@ import ngMaterial from 'angular-material';
 import example from './example/example.module';
 import list from './list/list.module';
 import login from './login/login.module';
+import logout from './logout/logout.module';
 import appNav from './nav/nav.module';
+import home from './home/home.module';
 import session from './session/session.module';
 import ENV from './env/env.module';
 import interceptor from './interceptor/interceptor.module';
@@ -17,6 +19,8 @@ angular.module('app', [
   'example',
   'list',
   'login',
+  'logout',
+  'home',
   'appNav',
   'session',
   'ENV'
