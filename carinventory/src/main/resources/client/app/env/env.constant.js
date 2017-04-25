@@ -1,5 +1,8 @@
 const env = {
-  baseUrl : 'http://dev29836.service-now.com/api'
+  baseUrl : '/api/',
+  loginApi : '31016/authentications/login',
+  auth : {key: 'authorization', token: 'Basic TWFuZGFyLkthbXRla2FyOjEyMzQ1'}
+
 }
 
 export default env;

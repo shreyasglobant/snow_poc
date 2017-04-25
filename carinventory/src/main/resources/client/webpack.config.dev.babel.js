@@ -14,5 +14,15 @@ module.exports = new WebpackConfig().extend('./webpack.config.common.babel.js').
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js')
-  ]
+  ],
+  devServer: {
+    proxy: {
+      '**/api/**': {
+        target: 'https://dev29836.service-now.com/',
+        secure: false,
+        changeOrigin:true,
+        logLevel : 'debug'
+      }
+    }
+  }
 });
