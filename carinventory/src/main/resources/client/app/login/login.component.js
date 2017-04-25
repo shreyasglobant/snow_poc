@@ -7,11 +7,14 @@ let loginComponent = {
     const vm = this;
     vm.title = loginService.title();
     vm.formData =  {
-      email: 'hello@patternry.com',password: 'foobar'
+      email: '',password: ''
     };
     vm.submit = ()=> {
       $rootScope.path = 'home';
-      $state.go('home');
+      $state.go('home.list');
+      loginService.login(vm.formData).then(res => {
+      });
+      return true;
     } ;
   }
 }
