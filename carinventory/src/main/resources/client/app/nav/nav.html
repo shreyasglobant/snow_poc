@@ -1,0 +1,30 @@
+<div ng-cloak>
+
+  <md-content class="md-padding" >
+    <h1>Car App</h1>
+    <md-nav-bar
+      md-selected-nav-item="nav.currentNavItem"
+      nav-bar-aria-label="navigation links">
+      <md-nav-item md-nav-click="nav.goto('example')" name="example">
+        Example
+      </md-nav-item>
+      <md-nav-item md-nav-click="nav.goto('list')" name="list">
+        List
+      </md-nav-item>
+      <md-nav-item md-nav-click="nav.goto('login')" name="login">
+        Login
+      </md-nav-item>
+      <!-- these require actual routing with ui-router or ng-route, so they
+      won't work in the demo
+      <md-nav-item md-nav-href="#page4" name="page5">Page Four</md-nav-item>
+      <md-nav-item md-nav-sref="app.page5" name="page4">Page Five</md-nav-item>
+      You can also add options for the <code>ui-sref-opts</code> attribute.
+      <md-nav-item md-nav-sref="page6" sref-opts="{reload:true, notify:true}">
+        Page Six
+      </md-nav-item>
+      -->
+    </md-nav-bar>
+
+
+  </md-content>
+</div>
