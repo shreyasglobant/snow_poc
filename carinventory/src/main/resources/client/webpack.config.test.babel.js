@@ -1,8 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin =require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   output: {
@@ -30,11 +28,6 @@ module.exports = {
     }]
   },
   plugins: [
-    new CleanWebpackPlugin(['dist'], {
-      root: __dirname,
-      verbose: true,
-      dry: false
-    }),
     new HtmlWebpackPlugin({
       title: 'Starter Theme',
       template: 'index.ejs',
