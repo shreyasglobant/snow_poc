@@ -213,7 +213,7 @@
                          <include>scripted-rest-api/*.js</include>
                     </sourceIncludes>
                     <jsTestSrcDir>${project.basedir}/src/test/resources/server</jsTestSrcDir>
-                    <haltOnFailure>true</haltOnFailure>
+                    <haltOnFailure>false</haltOnFailure>
                 </configuration>
             </plugin>
             <plugin>
