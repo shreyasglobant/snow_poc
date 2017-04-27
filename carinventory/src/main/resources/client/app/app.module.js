@@ -9,7 +9,8 @@ import appNav from './nav/nav.module';
 import home from './home/home.module';
 import session from './session/session.module';
 import ENV from './env/env.module';
-import interceptor from './interceptor/interceptor.module';
+//import interceptor from './interceptor/interceptor.module';
+import newCar from './newCar/newCar.module';
 
 require('./main.scss');
 
@@ -23,7 +24,8 @@ angular.module('app', [
   'home',
   'appNav',
   'session',
-  'ENV'
+  'ENV',
+  'newCar'
 ])
 .run(($rootScope, $state, sessionService, $log, $http) => {
   $log.log('hree');

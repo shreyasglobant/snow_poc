@@ -16,9 +16,10 @@
 
     var logOptions = spocLog.getOptions(tables);
     var log = spocLog.start(request, response, logOptions);
+    var user = null;
 
     log.info({
-        source : 'car_get.js',
+        source : 'car_post.js',
         message : '[function start]'
     });
 
@@ -27,29 +28,40 @@
 
     try {
         var spocUser = new SPOCUser();
-        spocUser.validateUserLoggedIn(log);
+        var validatedUser = spocUser.validateUserLoggedIn(log, user);
         
-        options = ((request || {}).headers || {})['car-sysid'];
-        
-        var grCar = new GlideRecord(tables.carTable);
-        grCar.addQuery('sys_id', 'IN', options);
-        grCar.query();
+        if(validatedUser.isUserValid){
 
-        while (grConfig.next()) {
-        	
-        	var quantity = grCar.u_quantity;
-        	if(quantity > 1){
-        		grCar.u_quantity = quantity -1;
-        		grCar.update();
-        	}else{
-        		grCar.deleteRecord();
-        	}
+            options = ((request || {}).headers || {})['car-sysid'];
+            
+            var grCar = new GlideRecord(tables.carTable);
+            grCar.addQuery('sys_id', 'IN', options);
+            grCar.query();
+
+            while (grCar.next()) {
+            	
+            	var quantity = grCar.u_quantity;
+            	if(quantity > 1){
+            		grCar.u_quantity = quantity -1;
+            		grCar.update();
+            	}else{
+            		grCar.deleteRecord();
+            	}
+            }
+            status = 201;
+            body =  {
+                titleKey : 'car.update.success.title',
+                messageKey : 'car.update.success.body'
+            };
+            
+        }else{
+        	status = 401;
+            body =  {
+                titleKey : 'car.user.authorized.title',
+                messageKey : 'car.user.authorized.body'
+            };
         }
-        status = 200;
-        body =  {
-            titleKey : 'car.quantity.update',
-            messageKey : 'car quantity succesfully updated.'
-        };
+        
     } catch (e) {
         status = e.status || 500;
         body = e.body || {
@@ -57,8 +69,8 @@
             messageKey : 'error.system.body'
         };
         log.error({
-            source : 'config_get.js',
-            message : 'Error in Config service',
+            source : 'car_update.js',
+            message : 'Error in update car service',
             exception : e
         });
     }
@@ -67,8 +79,8 @@
     response.setBody(body);
 
     log.info({
-        source : 'config_get.js',
+        source : 'car_update.js',
         message : '[function end]'
     });
-})(request, response);
+})(request,response);
 

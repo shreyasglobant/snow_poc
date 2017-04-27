@@ -1,37 +1,112 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.disney.poc</groupId>
-  <artifactId>carinventory</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
-  
-  <properties>
-    <snow.hostname>https://dev29836.service-now.com</snow.hostname>
-    <snow.username>Mandar.Kamtekar</snow.username>
-    <snow.password>12345</snow.password>
-  </properties>
-      <dependencies>
-        <!-- Internal Dependencies -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.disney.poc</groupId>
+	<artifactId>carinventory</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<properties>
+		<snow.hostname>https://dev29836.service-now.com</snow.hostname>
+		<snow.username>Mandar.Kamtekar</snow.username>
+		<snow.password>12345</snow.password>
+		<swagger.version>1.5.8</swagger.version>
+	</properties>
+	<dependencies>
+		<!-- Internal Dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-jersey2-jaxrs</artifactId>
+			<version>${swagger.version}</version>
+		</dependency>
+		        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>2.2.4</version>
             <scope>test</scope>
         </dependency>
-    </dependencies>
-  <build>
-    <sourceDirectory>${project.basedir}/src/</sourceDirectory>
-        <plugins>
-		 <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <version>2.5.1</version>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-            <plugin>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>angularjs</artifactId>
+            <version>1.5.7</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>angular-ui-router</artifactId>
+            <version>0.3.1</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.webjars.bower</groupId>
+                    <artifactId>angular</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>angular-translate</artifactId>
+            <version>2.11.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>3.3.6</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>angular-bootstrap</artifactId>
+            <version>2.1.3</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.webjars.bower</groupId>
+                    <artifactId>angular</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>momentjs</artifactId>
+            <version>2.14.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>moment-timezone</artifactId>
+            <version>0.5.5</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.webjars/prototype -->
+<dependency>
+    <groupId>org.webjars</groupId>
+    <artifactId>prototype</artifactId>
+    <version>1.7.1.0</version>
+</dependency>
+
+	</dependencies>
+	<build>
+		<sourceDirectory>${project.basedir}/src/</sourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<version>2.5.1</version>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+<plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
                 <version>1.0</version>
@@ -67,7 +142,7 @@
                         <phase>generate-resources</phase>
                     </execution>
 
-					<!-- running npm -->
+                    <!-- running npm -->
                     <execution>
                         <id>npm test</id>
                         <goals>
@@ -78,7 +153,7 @@
                             <arguments>test</arguments>
                         </configuration>
                     </execution>
-                    
+
                     <!-- running npm -->
                     <execution>
                         <id>npm rebuild</id>
@@ -91,6 +166,73 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+			<plugin>
+                <groupId>com.github.searls</groupId>
+                <artifactId>jasmine-maven-plugin</artifactId>
+                <version>2.2</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <phantomjs>
+                        <version>2.0.0</version>
+						<checkSystemPath>true</checkSystemPath>
+						<enforceVersion>true</enforceVersion>
+						<source>REPOSITORY</source>
+						<baseUrl></baseUrl>
+						<outputDirectory>target/phantomjs</outputDirectory>
+                    </phantomjs>
+                    <preloadSources>
+                        <source>webjars/jquery.js</source>
+                        <source>webjars/angular.js</source>
+                        <source>webjars/angular-aria.js</source>
+                        <source>webjars/angular-animate.js</source>
+                        <source>webjars/angular-route.js</source>
+                        <source>webjars/angular-ui-router.js</source>
+                        <source>webjars/angular-sanitize.js</source>
+                        <source>webjars/angular-translate.js</source>
+                        <source>webjars/angular-touch.js</source>
+                        <source>webjars/bootstrap.js</source>
+                        <source>webjars/ui-bootstrap.js</source>
+                        <source>webjars/ui-bootstrap-tpls.js</source>
+                        <source>webjars/moment.js</source>
+                        <source>webjars/moment-timezone-with-data.js</source>
+                        <source>webjars/angular-mocks.js</source>
+                         <source>webjars/prototype.js</source>
+                         <source>webjars/request.js</source>
+                    </preloadSources>
+                    <jsSrcDir>${project.basedir}/src/main/resources/server</jsSrcDir>
+                    <sourceIncludes>
+                        <include>**/*.module.js</include>
+                        <include>script-include/*.js</include>
+                         <include>scripted-rest-api/*.js</include>
+                    </sourceIncludes>
+                    <jsTestSrcDir>${project.basedir}/src/test/resources/server</jsTestSrcDir>
+                    <haltOnFailure>true</haltOnFailure>
+                </configuration>
+            </plugin>
+            <plugin>
+              <groupId>com.globant.snow.plugin</groupId>
+			  <artifactId>snow-deployment-maven-plugin</artifactId>
+			  <version>1.0-SNAPSHOT</version>
+			  <configuration>
+			    <hostname>${snow.hostname}</hostname>
+			    <username>${snow.username}</username>
+			    <password>${snow.password}</password>
+			  </configuration>
+			  <executions>
+	          <execution>
+	            <phase>install</phase>
+	            <goals>
+	              <goal>exporttosnow</goal>
+	            </goals>
+	          </execution>
+	        </executions>
             </plugin>
  	</plugins>
  </build>

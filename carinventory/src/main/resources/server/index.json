@@ -1,15 +1,27 @@
 {
 	"script-include": [
 	        {
-	            "file": "register_post.js",
-	            "sysId": "58e71728db123200a1f378eebf961930"
+	            "file": "spocuser.js",
+	            "sysId": "3beb8b36db123200a1f378eebf961984"
+	        },
+	        {
+	            "file": "spoclog.js",
+	            "sysId": "965c87b2db123200a1f378eebf9619e1"
 	        }
 	    ],
     "scripted-rest-api": [
         
         {
-            "file": "register_post.js",
-            "sysId": "0afb8a27dbb53200a1f378eebf9619f4"
+            "file": "car_update.js",
+            "sysId": "7d2a8ff2db123200a1f378eebf961959"
+        },
+        {
+            "file": "logoff.js",
+            "sysId": "04f2eba3db023200a1f378eebf961978"
+        },
+        {
+            "file": "auth.js",
+            "sysId": "29c919b6db423200a1f378eebf961934"
         }      
 
     ],
