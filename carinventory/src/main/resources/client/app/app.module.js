@@ -11,6 +11,8 @@ import session from './session/session.module';
 import ENV from './env/env.module';
 //import interceptor from './interceptor/interceptor.module';
 import newCar from './newCar/newCar.module';
+import car from './car/car.module';
+
 
 require('./main.scss');
 
@@ -25,7 +27,8 @@ angular.module('app', [
   'appNav',
   'session',
   'ENV',
-  'newCar'
+  'newCar',
+  'car'
 ])
 .run(($rootScope, $state, sessionService, $log, $http) => {
   $log.log('hree');

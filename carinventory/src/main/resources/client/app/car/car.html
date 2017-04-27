@@ -2,26 +2,29 @@
   <md-content class="md-padding" >
     <md-toolbar layout="row" class="md-hue-3">
       <div class="md-toolbar-tools">
-        <span>Grid view of avaialble cars</span>
+        <span>Car details</span>
       </div>
     </md-toolbar>
   </md-content>
   <md-content class="md-padding">
+
     <div layout="row" flex>
       <div class="parent" layout="column" flex>
-        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch ng-repeat="item in grid.cars">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
           <md-card-title>
             <md-card-title-text>
-              <span class="md-headline">{{item.name}}</span>
-              <span class="md-subhead">{{item.model}}</span>
+              <span class="md-headline">Name: {{car.car.name}}</span>
+              <span class="md-subhead">Model Type: {{car.car.model}}</span>
+              <span class="md-headline">Model No. {{car.car.modelNumber}}</span>
+              <span class="md-subhead">Description: {{car.car.description}}</span>
+
             </md-card-title-text>
             <md-card-title-media>
               <img src="http://www.questionpro.com/qp_userimages/sub-2/1419981/Lamborghini.jpg" class="md-card-image" alt="Washed Out">
             </md-card-title-media>
           </md-card-title>
           <md-card-actions layout="row" layout-align="end center">
-            <md-button class="md-raised md-primary">Edit</md-button>
-            <md-button class="md-raised md-warn">Delete</md-button>
+            <md-button class="md-raised md-primary" ng-click="car.gotoList()">Back</md-button>
           </md-card-actions>
         </md-card>
       </div>
