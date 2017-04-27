@@ -115,7 +115,7 @@ SPOCLog.prototype = {
             levelOverride = requestHeaders['x-debug-log-level'] || levelOverride;
         }
 
-        var json = new global.JSON();
+        var json = new JSON();
         var levelValues = this.getLevelValues();
         var level = 0;
 
@@ -178,23 +178,22 @@ SPOCLog.prototype = {
             if (entry.exception) {
                 gsLogEntry.exception = entry.exception;
             }
-            gsLogFunc(json.encode(gsLogEntry));
         };
 
         var noOp = function() {
         };
 
         logger.error = level < levelValues.error ? noOp : function(message, msgArgs, e) {
-            log('error', message, gs.error, e);
+            log('error', message, 'error', e);
         };
         logger.warn = level < levelValues.warn ? noOp : function(message, msgArgs) {
-            log('warn', message, gs.warn);
+            log('warn', message, 'warn');
         };
         logger.info = level < levelValues.info ? noOp : function(message, msgArgs) {
-            log('info', message, gs.info);
+            log('info', message, 'info');
         };
         logger.debug = level < levelValues.debug ? noOp : function(message, msgArgs) {
-            log('debug', message, gs.debug);
+            log('debug', message, 'debug');
         };
 
         return logger;
