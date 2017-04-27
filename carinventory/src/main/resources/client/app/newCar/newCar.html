@@ -2,25 +2,31 @@
   <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
     <div>
       <md-input-container>
-        <label>Car Name</label>
-        <input ng-model="car.name" type="text">
+        <label>Car Serial No</label>
+        <input ng-model="car.u_serial" type="text">
       </md-input-container>
 
       <md-input-container>
-        <label>Model Type</label>
-        <input ng-model="car.model" type="text">
+        <label>Model Manuafacture</label>
+        <input ng-model="car.u_manufacturer" type="text">
       </md-input-container>
     </div>
     <div>
       <md-input-container>
-        <label>Model Number</label>
-        <input ng-model="car.modelNumber" type="text">
+        <label>Model Segment</label>
+        <input ng-model="car.u_segment" type="text">
       </md-input-container>
 
       <md-input-container>
         <label>Description</label>
-        <input ng-model="car.description" type="text">
+        <input ng-model="car.u_model" type="text">
       </md-input-container>
+
+      <md-input-container>
+        <label>Quality</label>
+        <input ng-model="car.u_quantity" type="text">
+      </md-input-container>
+
     </div>
 </md-content>
 </div>
