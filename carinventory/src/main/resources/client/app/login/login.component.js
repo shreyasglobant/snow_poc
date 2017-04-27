@@ -9,12 +9,18 @@ let loginComponent = {
     vm.formData =  {
       email: '',password: ''
     };
+    vm.errorMsg = '';
     vm.submit = ()=> {
+      vm.errorMsg = '';
       $rootScope.path = 'home';
-      $state.go('home.list');
       loginService.login(vm.formData).then(res => {
+        if (res) {
+          $state.go('home.list');
+        }
+        else {
+          vm.errorMsg = 'Invalid User';
+        }
       });
-      return true;
     } ;
   }
 }
