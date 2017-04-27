@@ -6,7 +6,9 @@ let newCarComponent = {
   controller: function(newCarService, $state) {
     const vm = this;
     vm.title = newCarService.title();
-    vm.cars = newCarService.getCars();
+    newCarService.getCars().then((res)=> {
+      vm.cars = res.data;
+    });
     vm.addCar = (car) => {
       newCarService.addCar(car);
       $state.go('home.list');

@@ -3,12 +3,27 @@ function newCarService($state, sessionService, $http, ENV, $q) {
   return {
     cars: [],
     title: () => $state.current.name,
-    getCars: () => cars,
+    getCars: () => {
+      return $q((resolve, reject) => {
+        $http({
+          method: 'GET',
+          url: `${ENV.baseUrl}${ENV.getCarApi}`
+        }).then(res => {
+          if (res) {
+            resolve(res);
+          }
+          else {
+            resolve(false);
+          }
+        })
+        .catch(reject);
+      });
+    },
     addCar: (car) => {
       return $q((resolve, reject) => {
         $http({
           method: 'POST',
-          url: `${ENV.addCarApi}`,
+          url: `${ENV.baseUrl}${ENV.addCarApi}`,
           data: [
             {
               'u_serial': car.u_serial,

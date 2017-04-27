@@ -12,8 +12,11 @@
         <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch ng-repeat="item in grid.cars">
           <md-card-title>
             <md-card-title-text>
-              <span class="md-headline">{{item.name}}</span>
-              <span class="md-subhead">{{item.model}}</span>
+              <span class="md-headline">Manufacture: {{ item.u_manufacturer }}</span>
+              <span class="md-subhead">Model: {{ item.u_model }}</span>
+              <span>Segment: {{ item.u_segment }}</span>
+              <p>Serial Number: {{ item.u_serial }}</p>
+              <p>Quantity: {{ item.u_quantity }}</p>              
             </md-card-title-text>
             <md-card-title-media>
               <img src="http://www.questionpro.com/qp_userimages/sub-2/1419981/Lamborghini.jpg" class="md-card-image" alt="Washed Out">

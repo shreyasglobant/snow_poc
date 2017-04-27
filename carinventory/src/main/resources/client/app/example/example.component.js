@@ -6,7 +6,9 @@ let exampleComponent = {
   controller: function(exampleService, newCarService) {
     const vm = this;
     vm.title = exampleService.title();
-    vm.cars = newCarService.getCars();
+    newCarService.getCars().then((res)=> {
+      vm.cars = res.data.result;
+    });
   }
 
 }

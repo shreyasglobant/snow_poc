@@ -6,7 +6,9 @@ let listComponent = {
   controller: function(listService, newCarService, $state) {
     const vm = this;
     vm.title = listService.title();
-    vm.cars = newCarService.getCars();
+    newCarService.getCars().then((res)=> {
+      vm.cars = res.data.result;
+    });
     var imagePath = 'img/list/60.jpeg';
 
     vm.viewCar = (car) => {
