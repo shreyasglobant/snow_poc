@@ -1,5 +1,3 @@
-
-
 import webpack from 'webpack';
 import path from 'path';
 import WebpackConfig from 'webpack-config';

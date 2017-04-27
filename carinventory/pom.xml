@@ -32,22 +32,65 @@
                 </configuration>
             </plugin>
             <plugin>
-              <groupId>com.globant.snow.plugin</groupId>
-			  <artifactId>snow-deployment-maven-plugin</artifactId>
-			  <version>1.0-SNAPSHOT</version>
-			  <configuration>
-			    <hostname>${snow.hostname}</hostname>
-			    <username>${snow.username}</username>
-			    <password>${snow.password}</password>
-			  </configuration>
-			  <executions>
-	          <execution>
-	            <phase>install</phase>
-	            <goals>
-	              <goal>exporttosnow</goal>
-	            </goals>
-	          </execution>
-	        </executions>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>1.0</version>
+
+                <!-- global configurations -->
+                <configuration>
+                    <!-- workingDirectory: folder where are located package.json and gulpfile.js -->
+                    <workingDirectory>${project.basedir}/src/main/resources/client</workingDirectory>
+                    <!-- installDirectory: folder where dependencies are installed -->
+                    <installDirectory>${project.basedir}/target</installDirectory>
+                </configuration>
+
+                <executions>
+                    <!-- intalling node and npm -->
+                    <execution>
+                        <id>install node and npm</id>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <nodeVersion>v4.5.0</nodeVersion>
+                            <npmVersion>3.10.6</npmVersion>
+                        </configuration>
+                    </execution>
+
+                    <!-- running npm -->
+                    <execution>
+                        <id>npm install</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                    </execution>
+
+					<!-- running npm -->
+                    <execution>
+                        <id>npm test</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <arguments>test</arguments>
+                        </configuration>
+                    </execution>
+                    
+                    <!-- running npm -->
+                    <execution>
+                        <id>npm rebuild</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <arguments>run build</arguments>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
  	</plugins>
  </build>

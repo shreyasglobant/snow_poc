@@ -24,6 +24,7 @@
     "angular-ui-router": "1.0.0-beta.1"
   },
   "devDependencies": {
+    "angular-mocks": "^1.6.4",
     "autoprefixer": "^6.0.1",
     "babel-core": "^6.7.6",
     "babel-eslint": "^6.1.2",
@@ -38,7 +39,12 @@
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.15.0",
     "http-server": "^0.9.0",
+    "jasmine": "^2.6.0",
     "json-loader": "^0.5.4",
+    "karma": "^1.6.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-webpack": "^2.0.3",
     "ng-annotate-loader": "0.1.1",
     "ng-annotate-webpack-plugin": "^0.1.2",
     "ng-cache-loader": "0.0.18",
@@ -56,8 +62,7 @@
     "yargs": "^5.0.0"
   },
   "scripts": {
-    "pretest": "webdriver-manager update",
-    "test": "protractor ./test/protractor.conf.js",
+    "test": "karma start",
     "test-server": "http-server dist -p 9000 -a localhost",
     "start": "webpack-dev-server --config webpack.config.dev.babel.js --port 9000 --inline --hot",
     "build": "webpack --config webpack.config.prod.babel.js --progress"

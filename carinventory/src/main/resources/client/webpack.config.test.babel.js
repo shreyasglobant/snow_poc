@@ -1,24 +1,16 @@
-import webpack from 'webpack';
-import WebpackConfig from 'webpack-config';
-import path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import CleanWebpackPlugin from 'clean-webpack-plugin';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin =require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-module.exports = new WebpackConfig().merge({
+module.exports = {
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'bundle.js'
   },
   context:  path.join(__dirname,'/app'),
   module: {
-    preLoaders: [
-      {
-        test: /\.js$/,
-        loader: 'eslint-loader',
-        exclude: /(node_modules)/
-      }
-    ],
     loaders: [{
         test: /\.scss$/,
         loader: 'style!css?sourceMap!sass?sourceMap&sourceComments'
@@ -47,10 +39,6 @@ module.exports = new WebpackConfig().merge({
       title: 'Starter Theme',
       template: 'index.ejs',
       inject: 'body'
-    }),
-    new CopyWebpackPlugin([
-      {from: 'offline.html', to: 'offline.html'},
-      {from: 'manifest.json', to: 'manifest.json'}
-    ])
+    })
   ]
-})
+}
