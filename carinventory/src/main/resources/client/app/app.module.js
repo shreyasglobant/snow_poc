@@ -31,6 +31,7 @@ angular.module('app', [
   'car'
 ])
 .run(($rootScope, $state, sessionService, $log, $http) => {
+  $rootScope.path = 'login';
   $log.log('hree');
   $http.defaults.headers.common.Authorization = 'Basic TWFuZGFyLkthbXRla2FyOjEyMzQ1';
     // Route changes event handler

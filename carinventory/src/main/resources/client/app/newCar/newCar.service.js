@@ -43,6 +43,22 @@ function newCarService($state, sessionService, $http, ENV, $q) {
         })
         .catch(reject);
       });
+    },
+    deleteCar: (car) => {
+      return $q((resolve, reject) => {
+        $http({
+          method: 'DELETE',
+          url: `${ENV.baseUrl}${ENV.deleteCarApi}/${car.sys_id}`
+        }).then(res => {
+          if (res) {
+            resolve(true);
+          }
+          else {
+            resolve(false);
+          }
+        })
+        .catch(reject);
+      });
     }
   }
 

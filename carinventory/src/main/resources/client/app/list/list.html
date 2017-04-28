@@ -6,20 +6,18 @@
           <span>List view of avaialble cars</span>
         </div>
       </md-toolbar>
+
       <md-list flex>
         <md-subheader class="md-no-sticky">Available cars as follows:</md-subheader>
         <md-list-item class="md-3-line" ng-repeat="item in list.cars" ng-click="list.viewCar(item)">
-          <img ng-src="http://www.extremekitcars.com/wp-content/uploads/2016/01/Sports-Cars.png" class="md-avatar" alt="{{item.name}}" />
-          <div class="md-list-item-text" layout="column">
-            <h3>Manufacture: {{ item.u_manufacturer }}</h3>
-            <h4>Model: {{ item.u_model }}</h4>
-            <h3>Segment: {{ item.u_segment }}</h3>
-            <h3>Serial Number: {{ item.u_serial }}</h3>
-            <h3>Quantity: {{ item.u_quantity }}</h3>
-          </div>
-          <md-divider></md-divider>
-          <br>
-        </md-list-item>
+         <img ng-src="http://www.extremekitcars.com/wp-content/uploads/2016/01/Sports-Cars.png" class="md-avatar" alt="{{item.u_model}}" />
+         <div class="md-list-item-text" layout="column">
+           <h3>Manufacture: {{ item.u_manufacturer }}</h3>
+           <h4>Model: {{ item.u_model }}</h4>
+           <p>Segment: {{ item.u_segment }}</p>
+         </div>
+       </md-list-item>
+        <md-divider ></md-divider>
       </md-list>
     </div>
   </md-content>

@@ -12,9 +12,9 @@ let loginComponent = {
     vm.errorMsg = '';
     vm.submit = ()=> {
       vm.errorMsg = '';
-      $rootScope.path = 'home';
       loginService.login(vm.formData).then(res => {
         if (res) {
+          $rootScope.path = 'home';
           $state.go('home.list');
         }
         else {

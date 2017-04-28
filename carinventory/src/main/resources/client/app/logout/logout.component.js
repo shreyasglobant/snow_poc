@@ -8,8 +8,8 @@ let logoutComponent = {
     const vm = this;
     vm.title = loginService.title();
     vm.logout = ()=> {
-      $state.go('login');
       $rootScope.path = 'login';
+      $state.go('login');
     } ;
   }
 }

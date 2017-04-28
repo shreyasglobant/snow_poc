@@ -16,7 +16,7 @@
               <span class="md-subhead">Model: {{ item.u_model }}</span>
               <span>Segment: {{ item.u_segment }}</span>
               <p>Serial Number: {{ item.u_serial }}</p>
-              <p>Quantity: {{ item.u_quantity }}</p>              
+              <p>Quantity: {{ item.u_quantity }}</p>
             </md-card-title-text>
             <md-card-title-media>
               <img src="http://www.questionpro.com/qp_userimages/sub-2/1419981/Lamborghini.jpg" class="md-card-image" alt="Washed Out">
@@ -24,7 +24,7 @@
           </md-card-title>
           <md-card-actions layout="row" layout-align="end center">
             <md-button class="md-raised md-primary">Edit</md-button>
-            <md-button class="md-raised md-warn">Delete</md-button>
+            <md-button class="md-raised md-warn" ng-click="grid.deleteCar(item)">Delete</md-button>
           </md-card-actions>
         </md-card>
       </div>
